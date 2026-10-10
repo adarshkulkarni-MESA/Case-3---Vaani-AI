@@ -21,7 +21,7 @@ Write the summary in plain text, professional tone, 2-3 sentences max.`;
 
   try {
     const response = await genai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3.6",
       contents: prompt,
     });
     return response.text ?? "";
@@ -61,7 +61,7 @@ Write a 3-4 sentence designer briefing note. Be specific and actionable. Never m
 
   try {
     const response = await genai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3.6",
       contents: prompt,
     });
     return response.text ?? "";
