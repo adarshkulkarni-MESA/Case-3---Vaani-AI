@@ -1,95 +1,90 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Aangan brand palette — warm, refined, premium */
-  --color-bg: #F8F5F0;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FDFAF6;
-  --color-border: #E8E0D4;
-  --color-border-subtle: #F0EBE3;
+  /* Luxury interior design palette */
+  --color-bg: #0A0E15;
+  --color-bg-2: #0D1220;
+  --color-surface: rgba(255,255,255,0.04);
+  --color-surface-elevated: rgba(255,255,255,0.07);
+  --color-surface-solid: #111827;
+  --color-border: rgba(255,255,255,0.1);
+  --color-border-subtle: rgba(255,255,255,0.05);
+  --color-border-glow: rgba(196,161,74,0.3);
 
-  --color-ink: #1A1A1A;
-  --color-ink-secondary: #4A4A4A;
-  --color-ink-muted: #8A8A8A;
-  --color-ink-placeholder: #B0A89A;
+  --color-ink: #F0ECE4;
+  --color-ink-secondary: #C8BEB0;
+  --color-ink-muted: #8A8278;
+  --color-ink-placeholder: #5A5450;
 
-  --color-brand: #1C2D3A;
-  --color-accent: #C4714B;
-  --color-accent-light: #F5EDE7;
+  /* Brand — deep navy with gold accent */
+  --color-brand: #141B2B;
+  --color-brand-light: #1E2A3E;
+  --color-accent: #C4A14A;
+  --color-accent-2: #E8C876;
+  --color-accent-light: rgba(196,161,74,0.12);
+  --color-accent-glow: rgba(196,161,74,0.08);
 
-  --color-qualified: #16a34a;
-  --color-qualified-bg: #f0fdf4;
-  --color-qualified-border: #bbf7d0;
+  /* Status */
+  --color-qualified: #4ade80;
+  --color-qualified-bg: rgba(74,222,128,0.08);
+  --color-qualified-border: rgba(74,222,128,0.2);
 
-  --color-rejected: #dc2626;
-  --color-rejected-bg: #fef2f2;
-  --color-rejected-border: #fecaca;
+  --color-rejected: #f87171;
+  --color-rejected-bg: rgba(248,113,113,0.08);
+  --color-rejected-border: rgba(248,113,113,0.2);
 
-  --color-pending: #d97706;
-  --color-pending-bg: #fffbeb;
-  --color-pending-border: #fde68a;
+  --color-pending: #fbbf24;
+  --color-pending-bg: rgba(251,191,36,0.08);
+  --color-pending-border: rgba(251,191,36,0.2);
 
-  --color-escalated: #7c3aed;
-  --color-escalated-bg: #faf5ff;
-  --color-escalated-border: #e9d5ff;
+  --color-escalated: #a78bfa;
+  --color-escalated-bg: rgba(167,139,250,0.08);
+  --color-escalated-border: rgba(167,139,250,0.2);
 
+  /* Radii */
   --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 40px rgba(196,161,74,0.15);
+
+  /* Font */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg: #0F1923;
-    --color-surface: #1A2736;
-    --color-surface-elevated: #1E2E3D;
-    --color-border: #2A3D52;
-    --color-border-subtle: #243347;
-
-    --color-ink: #F0EBE3;
-    --color-ink-secondary: #B8C0C8;
-    --color-ink-muted: #7A8A9A;
-    --color-ink-placeholder: #4A5A6A;
-
-    --color-brand: #C4A882;
-    --color-accent: #E08A64;
-    --color-accent-light: #2A1F1A;
-
-    --color-qualified: #22c55e;
-    --color-qualified-bg: #0f1f15;
-    --color-qualified-border: #166534;
-
-    --color-rejected: #ef4444;
-    --color-rejected-bg: #1f0f0f;
-    --color-rejected-border: #7f1d1d;
-
-    --color-pending: #f59e0b;
-    --color-pending-bg: #1f1605;
-    --color-pending-border: #78350f;
-
-    --color-escalated: #a78bfa;
-    --color-escalated-bg: #1a1025;
-    --color-escalated-border: #4c1d95;
+/* Keep light theme for backward compat */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-bg: #0A0E15;
+    --color-surface: rgba(255,255,255,0.04);
   }
 }
 
-:root[data-theme="dark"] {
-  --color-bg: #0F1923;
-  --color-surface: #1A2736;
-  --color-surface-elevated: #1E2E3D;
-  --color-border: #2A3D52;
-  --color-border-subtle: #243347;
-  --color-ink: #F0EBE3;
-  --color-ink-secondary: #B8C0C8;
-  --color-ink-muted: #7A8A9A;
+:root[data-theme="light"] {
+  --color-bg: #F5F0E8;
+  --color-bg-2: #EDE8DF;
+  --color-surface: rgba(255,255,255,0.7);
+  --color-surface-elevated: rgba(255,255,255,0.9);
+  --color-surface-solid: #FFFFFF;
+  --color-border: rgba(0,0,0,0.1);
+  --color-border-subtle: rgba(0,0,0,0.05);
+  --color-ink: #1A1510;
+  --color-ink-secondary: #4A4038;
+  --color-ink-muted: #8A7A6A;
+  --color-brand: #1C2D3A;
+  --color-accent: #C4A14A;
 }
 
-* {
+/* ── Reset ── */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -104,25 +99,275 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-ink-muted); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
-/* Focus */
+/* ── Focus ── */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
-/* Selection */
+/* ── Selection ── */
 ::selection {
   background: var(--color-accent-light);
-  color: var(--color-accent);
+  color: var(--color-accent-2);
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196,161,74,0); }
+  50% { box-shadow: 0 0 20px 4px rgba(196,161,74,0.2); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Animation utilities ── */
+.animate-fade-in { animation: fadeIn 0.5s ease forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.4s ease forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.4s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease forwards; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* stagger helpers */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ── Glassmorphism ── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glass-gold {
+  background: rgba(196,161,74,0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(196,161,74,0.15);
+}
+
+/* ── Card hover effects ── */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(196,161,74,0.1);
+  border-color: rgba(196,161,74,0.25) !important;
+}
+
+/* ── Shimmer text ── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-2) 50%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Luxury divider ── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.3;
+}
+
+/* ── Status pill ── */
+.status-qualified {
+  background: var(--color-qualified-bg);
+  border: 1px solid var(--color-qualified-border);
+  color: var(--color-qualified);
+}
+.status-rejected {
+  background: var(--color-rejected-bg);
+  border: 1px solid var(--color-rejected-border);
+  color: var(--color-rejected);
+}
+.status-pending {
+  background: var(--color-pending-bg);
+  border: 1px solid var(--color-pending-border);
+  color: var(--color-pending);
+}
+
+/* ── Mesh gradient background ── */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(196,161,74,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(74,100,196,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(196,161,74,0.03) 0%, transparent 70%),
+    var(--color-bg);
+}
+
+/* ── Hero animated gradient ── */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #0A0E15 0%,
+    #141B2B 25%,
+    #1A1408 50%,
+    #0D1220 75%,
+    #0A0E15 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* ── Grid overlay ── */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Sidebar transition ── */
+.nav-item-transition {
+  transition: all 0.15s ease;
+}
+.nav-item-transition:hover {
+  background: rgba(196,161,74,0.08) !important;
+  color: var(--color-accent-2) !important;
+}
+
+/* ── Call row hover ── */
+.call-row-link {
+  transition: background 0.15s ease;
+}
+.call-row-link:hover {
+  background: rgba(255,255,255,0.025) !important;
+}
+
+/* ── Quick link hover ── */
+.quick-link-card {
+  transition: all 0.15s ease;
+}
+.quick-link-card:hover {
+  background: rgba(196,161,74,0.06) !important;
+  border-color: rgba(196,161,74,0.15) !important;
+}
+
+/* ── Followup card hover ── */
+.followup-card {
+  transition: all 0.15s ease;
+}
+.followup-card.followup-qualified:hover {
+  background: rgba(74,222,128,0.06) !important;
+  border-color: rgba(74,222,128,0.15) !important;
+}
+.followup-card.followup-rejected:hover {
+  background: rgba(248,113,113,0.06) !important;
+  border-color: rgba(248,113,113,0.15) !important;
+}
+.followup-card.followup-pending:hover {
+  background: rgba(251,191,36,0.06) !important;
+  border-color: rgba(251,191,36,0.15) !important;
+}
+
+/* ── Transcript expand button ── */
+details summary::-webkit-details-marker { display: none; }
+details summary:hover {
+  color: rgba(255,255,255,0.6) !important;
+}
+details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* ── Pipeline card ── */
+.pipeline-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+.pipeline-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(196,161,74,0.2);
+  transform: translateY(-1px);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ── Tabs ── */
+.tab-active {
+  background: var(--color-accent-light);
+  border-bottom: 2px solid var(--color-accent) !important;
+  color: var(--color-accent-2) !important;
 }
