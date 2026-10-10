@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -17,12 +16,11 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const result = await signIn("credentials", {
-        email,
-        password,
+        name,
         redirect: false,
       });
       if (result?.error) {
-        setError("Invalid email or password.");
+        setError("Name not recognised. Please check and try again.");
       } else {
         router.push("/");
       }
@@ -57,44 +55,27 @@ export default function LoginPage() {
           padding: 32,
           boxShadow: "var(--shadow-md)",
         }}>
-          <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 6, color: "var(--color-ink)" }}>Sign in</h2>
-          <p style={{ fontSize: 13, color: "var(--color-ink-muted)", marginBottom: 24 }}>Use your studio email and password</p>
+          <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 6, color: "var(--color-ink)" }}>Welcome</h2>
+          <p style={{ fontSize: 13, color: "var(--color-ink-muted)", marginBottom: 24 }}>Enter your name to continue</p>
 
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: 16 }}>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 500, marginBottom: 6, color: "var(--color-ink-secondary)" }}>
-                Email
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-                placeholder="you@aangan.studio"
-                style={{
-                  width: "100%", padding: "10px 14px", borderRadius: "var(--radius-md)",
-                  border: "1px solid var(--color-border)", background: "var(--color-bg)",
-                  color: "var(--color-ink)", fontSize: 14, outline: "none",
-                }}
-              />
-            </div>
-
             <div style={{ marginBottom: 24 }}>
               <label style={{ display: "block", fontSize: 13, fontWeight: 500, marginBottom: 6, color: "var(--color-ink-secondary)" }}>
-                Password
+                Name
               </label>
               <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
-                autoComplete="current-password"
-                placeholder="••••••••"
+                autoComplete="name"
+                autoFocus
+                placeholder="Your name"
                 style={{
                   width: "100%", padding: "10px 14px", borderRadius: "var(--radius-md)",
                   border: "1px solid var(--color-border)", background: "var(--color-bg)",
                   color: "var(--color-ink)", fontSize: 14, outline: "none",
+                  boxSizing: "border-box",
                 }}
               />
             </div>
@@ -119,7 +100,7 @@ export default function LoginPage() {
                 transition: "background 0.15s",
               }}
             >
-              {loading ? "Signing in…" : "Sign in"}
+              {loading ? "Signing in…" : "Continue"}
             </button>
           </form>
         </div>
