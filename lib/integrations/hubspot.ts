@@ -166,7 +166,7 @@ export async function syncCallToHubSpot(input: SyncCallToHubSpotInput) {
     city: input.projectLocation || undefined,
     aangan_lead_status: input.leadStatus,
     aangan_project_location: input.projectLocation || undefined,
-    aangan_project_type: input.projectType || undefined,
+    aangan_project_type: mapProjectType(input.projectType),
     aangan_property_type: input.propertyType || undefined,
     aangan_square_feet: input.squareFeet?.toString(),
     aangan_project_scope: input.projectScope || undefined,
@@ -201,6 +201,15 @@ export async function syncCallToHubSpot(input: SyncCallToHubSpotInput) {
   }
 
   return { contactId: contact.id, dealId };
+}
+
+function mapProjectType(projectType?: string | null): string {
+  if (!projectType) return "Residential";
+  const lower = projectType.toLowerCase();
+  if (lower.includes("commercial") || lower.includes("office") || lower.includes("restaurant") || lower.includes("shop") || lower.includes("retail")) {
+    return "Commercial";
+  }
+  return "Residential";
 }
 
 function mapLeadStatusToHubSpot(status: string): string {

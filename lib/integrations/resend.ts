@@ -155,10 +155,14 @@ View in dashboard: ${dashboardUrl}
 ${bookingLink ? `Book consultation: ${bookingLink}` : ""}
   `.trim();
 
+  const toAddresses = [designer.email];
+  if (FRONT_DESK_EMAIL && FRONT_DESK_EMAIL !== designer.email) {
+    toAddresses.push(FRONT_DESK_EMAIL);
+  }
+
   const result = await resend.emails.send({
     from: `Aangan Studio AI <${FROM_EMAIL}>`,
-    to: [designer.email],
-    cc: [FRONT_DESK_EMAIL],
+    to: toAddresses,
     subject: `New Lead — ${customerName} · ${call.leadStatus.replace("_", " ").toUpperCase()}`,
     html: htmlBody,
     text: textBody,
