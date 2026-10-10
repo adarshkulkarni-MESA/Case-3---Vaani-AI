@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { db } from "@/lib/db";
 import {
   calls,
@@ -215,10 +215,10 @@ async function handleCompletedCall(payload: VaaniCallPayload) {
     }
   }
 
-  // Queue HubSpot sync (async)
+  // Queue HubSpot sync — runs after response is sent, kept alive by Next.js after()
   if (qualification.status !== "pending_review") {
     await db.insert(hubspotSync).values({ callId: call.id, customerId, syncStatus: "pending" });
-    setImmediate(() => triggerHubSpotSync(call.id));
+    after(() => triggerHubSpotSync(call.id));
   }
 
   await db.insert(auditLog).values({
