@@ -1,8 +1,10 @@
 import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
+async function proxy(req: NextRequest) {
+  const session = await auth();
+  const isLoggedIn = !!session?.user;
   const { pathname } = req.nextUrl;
 
   if (pathname === "/login") {
@@ -17,7 +19,10 @@ export default auth((req) => {
   }
 
   return NextResponse.next();
-});
+}
+
+export { proxy };
+export default proxy;
 
 export const config = {
   matcher: ["/((?!api/webhooks|api/auth|_next/static|_next/image|favicon.ico).*)"],

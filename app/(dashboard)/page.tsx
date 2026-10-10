@@ -6,7 +6,6 @@ import { StatusBadge } from "@/components/ui/badge";
 import { formatDate, formatDuration, outcomeLabel } from "@/lib/utils";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
 
 async function getDashboardData(isFounder: boolean) {
   const thirtyDaysAgo = new Date();

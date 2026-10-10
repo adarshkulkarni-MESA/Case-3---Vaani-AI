@@ -4,8 +4,6 @@ import { meetings } from "@/lib/db/schema";
 import { verifyCalcomWebhook } from "@/lib/integrations/calcom";
 import { eq } from "drizzle-orm";
 
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   const rawBody = await request.text();

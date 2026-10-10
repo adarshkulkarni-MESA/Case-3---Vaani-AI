@@ -5,7 +5,6 @@ import { calls, hubspotSync } from "@/lib/db/schema";
 import { syncCallToHubSpot } from "@/lib/integrations/hubspot";
 import { eq, and } from "drizzle-orm";
 
-export const dynamic = "force-dynamic";
 
 // Retry failed HubSpot syncs — founder only
 export async function POST(request: NextRequest) {

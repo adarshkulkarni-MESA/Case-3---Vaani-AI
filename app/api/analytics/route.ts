@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { calls } from "@/lib/db/schema";
 import { sql, gte, and } from "drizzle-orm";
 
-export const dynamic = "force-dynamic";
 
 export async function GET() {
   const session = await auth();

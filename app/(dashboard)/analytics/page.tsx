@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { calls } from "@/lib/db/schema";
 import { sql, gte, desc } from "drizzle-orm";
 
-export const dynamic = "force-dynamic";
 
 async function getAnalytics() {
   const thirtyDaysAgo = new Date();

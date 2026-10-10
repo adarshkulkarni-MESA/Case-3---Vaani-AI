@@ -5,6 +5,10 @@
  * Usage: npx tsx scripts/seed.ts
  */
 
+import { config } from "dotenv";
+import { resolve } from "path";
+config({ path: resolve(process.cwd(), ".env.local") });
+
 import { db } from "../lib/db";
 import { users, customers, calls, transcripts, meetings } from "../lib/db/schema";
 import { qualifyLead, generateHandoffNote } from "../lib/ai/qualification";

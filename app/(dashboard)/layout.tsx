@@ -2,6 +2,8 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/sidebar";
 
+export const instant = false;
+
 export default async function DashboardLayout({
   children,
 }: {

@@ -16,6 +16,7 @@ export interface QualificationInput {
   decisionMakerNote?: string;
   squareFeet?: number;
   projectType?: string;
+  askedAboutPrice?: boolean;
 }
 
 export interface QualificationCriteria {
@@ -24,6 +25,7 @@ export interface QualificationCriteria {
   timeline: boolean | null;
   budget: boolean | null;
   decision_maker: boolean | null;
+  [key: string]: boolean | null;
 }
 
 export interface QualificationResult {
